@@ -1,0 +1,133 @@
+*{
+    box-sizing: border-box;
+}
+body, html{
+    font-family: "Lato", sans-serif;
+}
+
+.area-selector > .selection-div{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 15px;
+    max-width: 196px;
+    padding: 8px 16px;
+    border-radius: 10px;
+    border: 1px solid #08BA9026;
+    box-shadow: 0px 13px 41px 0px #3B3B3D1B;
+}
+
+.area-selector > .selection-div input{
+    border: none;
+    outline: none;
+    width: 100px;
+}
+
+/* main */
+.main-div > .svg-div{
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+.main-div > .svg-div .shopping-svg{
+    /* margin-top: 20px; */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.main-div > .svg-div .shopping-svg > img{
+    width: 100%;
+    max-width: 803px;
+    /* max-height: 803px; */
+}
+
+.main-div > .form-div{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-heading{
+    margin-top: 55px;
+}
+
+.form-heading h3{
+    font-size: 34px;
+    font-weight: 600;
+    color: #000000;
+}
+
+.form-div form{
+    width: 56%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+form > .opt-fields{
+    width: 100%;
+    display: flex;
+    /* gap: 10px; */
+    flex-direction: column;
+    margin-bottom: 15rem;
+    /* align-items: end; */
+}
+
+.opt-fields > .otp-inputs{
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.opt-fields > .otp-inputs > input{
+    width: 80px;
+    height: 60px;
+    border: none;
+    box-shadow: 0px 13px 41px 0px #3B3B3D1B;
+    outline-color: #08BA90;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.opt-fields > .otp-inputs > input[type="text"]::placeholder {
+    text-align: center;
+}
+
+.otp-request-time{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.otp-request-time > span{
+    font-size: 18px;
+    font-weight: 700;
+    color: #08BA90;
+}
+.resend-otp{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.resend-otp span{
+    font-size: 16px;
+    font-weight: 600;
+}
+.resend-otp span > a{
+    color: #08BA90;
+}
+
+.code-submit-btn button{
+    border: none;
+    background-color: #08BA90;
+    color: white;
+    width: 340px;
+    height: 50px;
+    border-radius: 12px;
+    font-size: 22px;
+    font-weight: 700;
+}

@@ -1,0 +1,117 @@
+*{
+    box-sizing: border-box;
+}
+body, html{
+    font-family: "Lato", sans-serif;
+}
+
+.area-selector > .selection-div{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 15px;
+    max-width: 196px;
+    padding: 8px 16px;
+    border-radius: 10px;
+    border: 1px solid #08BA9026;
+    box-shadow: 0px 13px 41px 0px #3B3B3D1B;
+}
+
+.area-selector > .selection-div input{
+    border: none;
+    outline: none;
+    width: 100px;
+}
+
+/* main */
+.main-div > .svg-div{
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+.main-div > .svg-div .shopping-svg{
+    /* margin-top: 20px; */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+}
+.main-div > .svg-div .shopping-svg > img{
+    width: 100%;
+    max-width: 803px;
+    position: absolute;
+    left: -76px;
+    top: -287px;
+    /* max-height: 803px; */
+}
+
+.main-div > .form-div{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-heading{
+    margin-top: 55px;
+}
+
+.form-heading h3{
+    font-size: 34px;
+    font-weight: 600;
+    color: #000000;
+}
+
+.form-div form{
+    width: 56%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+form > .opt-fields{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    margin-bottom: 12rem;
+    /* align-items: end; */
+}
+
+form .email-div{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    gap: 10px;
+    position: relative;
+}
+
+form .email-div > input{
+    border: none;
+    outline-color: #08BA90;
+    box-shadow: 0px 13px 41px 0px #3B3B3D1B;
+    border-radius: 10px;
+    height: 54px;
+    padding-left: 15px;
+
+}
+.email-div > label{
+    font-size: 20px;
+    font-weight: 600;
+    color: #494949;
+}
+
+
+.code-submit-btn button{
+    border: none;
+    background-color: #08BA90;
+    color: white;
+    width: 340px;
+    height: 50px;
+    border-radius: 12px;
+    font-size: 22px;
+    font-weight: 700;
+}

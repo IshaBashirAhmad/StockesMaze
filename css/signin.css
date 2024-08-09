@@ -1,0 +1,259 @@
+*{
+    box-sizing: border-box;
+}
+body, html{
+    font-family: "Lato", sans-serif;
+}
+
+.area-selector > .selection-div{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 15px;
+    max-width: 196px;
+    padding: 8px 16px;
+    border-radius: 10px;
+    border: 1px solid #08BA9026;
+    box-shadow: 0px 13px 41px 0px #3B3B3D1B;
+}
+
+.area-selector > .selection-div input{
+    border: none;
+    outline: none;
+    width: 100px;
+}
+
+/* mAIn */
+
+.main-div > .svg-div{
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+.main-div > .svg-div .shopping-svg{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.main-div > .svg-div .shopping-svg > img{
+    width: 70%;
+    max-width: 803px;
+    /* max-height: 803px; */
+}
+
+.main-div > form{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+.main-div > form > .form-heading h3:first-child{
+    font-size: 40px;
+    font-weight: 600;
+    line-height:48px ;
+    letter-spacing: 1px;
+}
+.main-div > form > .form-heading h3:first-child > span{
+   color: #08BA90;
+   text-shadow: 0px 2px 0px #9BDECACC;
+}
+.main-div > form > .form-heading h3:last-child{
+    font-size: 34px;
+    font-weight: 600;
+    line-height:40px ;
+    text-align: center;
+}
+ form .form-div{
+    width: 57%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-div .phone-div{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.form-div .phone-div .input-groupp {
+    /* margin-bottom: 20px; */
+    display: flex;
+    height: 54px;
+    align-items: center;
+    box-shadow: 0px 13px 41px 0px #3B3B3D1B;
+    /* padding: 8px; */
+    border-radius: 10px;
+}
+
+.input-groupp >[type="text"]
+        {
+            width: 100%;
+            padding-left: 8px;
+            border: none;
+            border-left: 1px solid #ccc;
+            outline: none;
+            height: 35px;
+        }
+
+.input-groupp .select-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.select-group select {
+    width: 60px;
+    padding: 10px 6px;
+    border: none;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.select-group select::-ms-expand {
+    display: none;
+}
+.select-group .arrow {
+    position: absolute;
+    right: 0px;
+    top: 55%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.select-group .arrow::before {
+    content: url('/images/arrow.svg');
+    /* background-image: url(arrow.svg); */
+    /* font-family: FontAwesome; */
+    font-size: 14px;
+    color: #ccc;
+}
+.form-div .email-div{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    gap: 6px;
+}
+
+.form-div .email-div > input{
+    border: none;
+    outline: none;
+    box-shadow: 0px 13px 41px 0px #3B3B3D1B;
+    border-radius: 10px;
+    height: 54px;
+    padding-left: 15px;
+
+}
+
+
+
+form > .form-buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    width: 48%;
+}
+
+.styled-line {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    /* margin: 20px 0; */
+}
+.styled-line::before,
+.styled-line::after {
+    content: '';
+    flex: 1;
+    border-bottom: 2px solid #A6A7A8;
+}
+.styled-line::before {
+    margin-right: 10px;
+}
+.styled-line::after {
+    margin-left: 10px;
+}
+.form-buttons > .sign-up-buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-buttons > .submit-button{
+    border: none;
+    padding: 6px;
+    border-radius: 12px;
+    background-color: #08BA90;
+    color: white;
+    font-size: 22px;
+    font-weight: 700;
+}
+.form-buttons> span{
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+}
+.form-buttons> span> a{
+   color: #08BA90;
+}
+.sign-up-buttons button{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: none;
+    background-color: #F9F9F9;
+    padding: 8px;
+    border-radius: 8px;
+}
+.sign-up-buttons button > span{
+   text-align: center;
+   font-size: 16px;
+   font-weight: 600;
+}
+
+.phone-div , .email-div > label{
+    font-size: 20px;
+    font-weight: 600;
+    color: #494949;
+}
+
+.forgot-password{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.forgot-password a{
+    color: #08BA90;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.forgot-password > .form-check label{
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+.form-check-input:checked {
+    background-color: #08BA90;
+    border-color: #08BA90;
+}
+
+.robot-div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 15px;
+    border: 1px solid #00000026;
+    border-radius: 10px;
+}
+
+.robot-div .robot-svg{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
