@@ -20,16 +20,21 @@ document.getElementById('login-form').addEventListener('submit', async function(
     })
     .then(response => {
         if (response.status === 200) {
-            return response.json(); // Parse the response if status is 200
+            return response.json(); 
         } else {
-            throw new Error('Phone number or password is invalid'); // Custom error message for failed login
+            throw new Error('Phone number or password is invalid'); 
         }
     })
 
     .then(data => {
         loginMessage.textContent = 'Login successful!';
         loginMessage.style.color = 'green';
-        // Optionally, redirect to the next page here
+        console.log(data);
+        
+        localStorage.setItem('userName', data.user.name);
+        localStorage.setItem('userEmail', data.user.email);
+        localStorage.setItem('userProfilePic', data.user.logo);
+        
         window.location.href = '/html/setins.html';
     })
     .catch(error => {

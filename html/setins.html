@@ -285,9 +285,9 @@
                         <form id="updateProfileForm">
                             <div class="avtar">
                                 <div class="avatar-container">
-                                    <img id="avatar" src="/images/avtar.png" alt="Avatar">
-                                    <input type="file" id="profilePic" style="display:none" accept="image/*">
-                                    <button id="editButton">
+                                    <img id="profilePic" src="" alt="Avatar" style="width: 130px; height: 130px; border-radius: 50%;">
+                                    <input type="file" id="profilePicinput" style="display:none" accept="image/*">
+                                    <label for="profilePicinput" id="editButton">
                                         <svg width="26" height="26" viewBox="0 0 26 26" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path
@@ -300,20 +300,20 @@
                                                 stroke-linejoin="round" />
                                         </svg>
     
-                                    </button>
+                                    </label>
                                 </div>
                             </div>
                             <div class="email-div">
                                 <label for="">Full Name</label>
-                                <input type="text"  id="name" placeholder="Jenny Lane">
+                                <input type="text"  id="name" value="Isha" placeholder="Jenny Lane">
                             </div>
                             <div class="email-div">
                                 <label for="">Email Address</label>
-                                <input type="text" id="email" placeholder="John10@gmail.com">
+                                <input type="text" value="ishabashir97@gmail.com" id="email" placeholder="John10@gmail.com">
                             </div>
-                            <p id="updateMessage"></p>
+                            <p id="successMessage"></p>
                             <div class="code-submit-btn">
-                                <button>Next</button>
+                                <button type="submit">Next</button>
                             </div>
                         </form>
 
