@@ -35,10 +35,43 @@ document.getElementById('profilePicinput').addEventListener('change', function(e
     }
 });
 
+// referesh token
+
+async function refreshAccessToken() {
+    const refreshToken = localStorage.getItem('refreshToken');
+
+    if (!refreshToken) {
+        console.error('No refresh token found');
+        return;
+    }
+
+    try {
+        const response = await fetch('http://3.80.147.148:8000/user/api/token/refresh/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ refresh: refreshToken })
+        });
+
+        if (response.status === 200) {
+            const data = await response.json();
+            localStorage.setItem('accessToken', data.access);
+            return data.access;
+        } else {
+            throw new Error('Failed to refresh access token');
+        }
+    } catch (error) {
+        console.error('Error refreshing access token:', error);
+        return null;
+    }
+}
+
+
 
 const baseUrl = 'http://3.80.147.148:8000';
 
-// Retrieve the user data from local storage and display it
+
 document.addEventListener('DOMContentLoaded', () => {
     const userName = localStorage.getItem('userName');
     const userEmail = localStorage.getItem('userEmail');
@@ -49,10 +82,24 @@ document.addEventListener('DOMContentLoaded', () => {
     if (userName) document.getElementById('name').value = userName;
     if (userEmail) document.getElementById('email').value = userEmail;
     if (userProfilePic) document.getElementById('profilePic').src = `${baseUrl}${userProfilePic}`;
+    if (userProfilePic) document.getElementById('navimg').src = `${baseUrl}${userProfilePic}`;
 });
 
 document.getElementById('updateProfileForm').addEventListener('submit', (e) => {
     e.preventDefault(); 
+
+    
+        let accessToken = localStorage.getItem('accessToken');
+    
+        // Refresh the token if needed
+        if (!accessToken || isTokenExpired(accessToken)) {
+            accessToken = refreshAccessToken();
+        }
+    
+        if (!accessToken) {
+            alert('Failed to update profile due to token issues');
+            return;
+        }
 
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
@@ -68,8 +115,7 @@ document.getElementById('updateProfileForm').addEventListener('submit', (e) => {
     fetch('http://3.80.147.148:8000/user/profile/buyer/update_profile/', {
         method: 'PATCH',
         headers: {
-            'Authorization': `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNjIxNTE0LCJpYXQiOjE3MjM1MzUxMTQsImp0aSI6IjFmZTQ5ZWE2ZmNlNTRjNzI4MmM3ZWM2NDM1N2FiMmJjIiwidXNlcl9pZCI6MTU3fQ.PuO5BDu3bsTlR0jDjg2g__zhoLk47cAsO5qriimtnnU`,
-            
+            'Authorization': `Bearer ${accessToken}`,
         },
         body: formData
     })
@@ -88,7 +134,13 @@ document.getElementById('updateProfileForm').addEventListener('submit', (e) => {
             localStorage.setItem('userProfilePic', data.user.logo);
 
             document.getElementById('profilePic').src = `${baseUrl}${data.user.logo}`;
-            document.getElementById('successMessage').textContent = 'Profile updated successfully!';
+            document.getElementById('navimg').src = `${baseUrl}${data.user.logo}`;
+            const toastElement = document.getElementById('profileUpdateToast');
+            const toast = new bootstrap.Toast(toastElement);
+            toastElement.style.display = 'block'; 
+            toast.show();
+            
+            // document.getElementById('successMessage').textContent = 'Profile updated successfully!';
         } else {
             throw new Error('Profile update failed. Invalid response structure.');
         }
@@ -98,3 +150,38 @@ document.getElementById('updateProfileForm').addEventListener('submit', (e) => {
         document.getElementById('successMessage').textContent = error.message;
     });
 });
+
+function isTokenExpired(token) {
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    return payload.exp * 1000 < Date.now();  // Check expiration
+}
+
+
+
+
+
+// logout
+document.getElementById('logoutButton').addEventListener('click', function() {
+   
+    localStorage.clear();
+    window.location.href = '/html/signin.html'; 
+});
+
+
+// Sign in with google
+
+window.onload = function() {
+    const name = localStorage.getItem('name');
+    const email = localStorage.getItem('email');
+    const picture = localStorage.getItem('picture');
+
+    if (!name || !email || !picture) {
+      
+        window.location.href = "signin.html";
+    } else {
+        
+        document.getElementById('name').textContent = name;
+        document.getElementById('email').textContent = email;
+        // document.getElementById('profilePic').src = picture;
+    }
+}

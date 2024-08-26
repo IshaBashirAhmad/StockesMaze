@@ -17,11 +17,73 @@ body, html{
     box-shadow: 0px 13px 41px 0px #3B3B3D1B;
 }
 
-.area-selector > .selection-div input{
-    border: none;
-    outline: none;
-    width: 100px;
+.select-option{
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    height: 45px;
+    border-radius: 10px;
+    box-shadow: 0px 13px 41px 0px #3B3B3D1B;
+    align-items: center;
+    padding: 0 10px;
+    font-size: 16px;
+    width: 175px;
 }
+.area-selector.active .select-option svg{
+    transform: rotate(-180deg);
+}
+.list-search-container{
+    background-color: #fff;
+    margin-top: 15px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 13px 41px 0px #3B3B3D1B;
+    display: none;
+}
+.area-selector.active .list-search-container{
+    display: block;
+}
+.search-box{
+    position: relative;
+}
+.search-box svg{
+    position: absolute;
+    top: 50%; left: 15px;
+    transform: translateY(-50%);
+}
+
+.search-box input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 17px;
+    padding-left: 45px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.search-box input:focus{
+    border: 2px solid #08BA90;
+}
+.list-search-container .list{
+    margin-top: 10px;
+    max-height: 200px;
+    overflow: auto;
+    padding-right: 7px;
+    padding-left: 10px !important;
+}
+.list-search-container .list li{
+    font-size: 16px;
+    height: 40px;
+    padding: 5px 0px;
+    list-style-type: none;
+}
+
+.list-search-container .list li:hover, li.selected{
+    border-radius: 5px;
+    background-color: #ccc;
+}
+
 
 /* mAIn */
 
@@ -257,3 +319,5 @@ form > .form-buttons{
     align-items: center;
     gap: 5px;
 }
+
+

@@ -236,3 +236,13 @@ form .radio-div{
     background-color: #08BA90 !important;
     border-color: #08BA90 !important;
 }
+
+ .toast .toasthead span{
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+} 
+
+.toast .toastbody{
+    color: #fff;
+}

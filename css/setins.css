@@ -65,6 +65,9 @@
     display: flex;
     align-items: center;
 }
+.user-profile > div > a > img{
+    object-fit: cover;
+}
 
 .dropdown-toggle::after{
     display: none !important;
@@ -669,3 +672,4 @@ footer ul{
 .footer-coll{
     width: 19% !important;
 }
+
